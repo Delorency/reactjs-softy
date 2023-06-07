@@ -6,7 +6,7 @@ export const CheckUserToken = () => {
 
 export const GetAuthHeader = () => {
     let x = localStorage.getItem('token');
-    return (x !== null) ? {'Authorization':`Token ${x}`} : {'':''} 
+    return (x !== null) ? {'Authorization':`Token ${x}`} : null 
 }
 
 
