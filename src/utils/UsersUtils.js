@@ -10,8 +10,8 @@ export const GetAuthHeader = () => {
 }
 
 
-export const SetUserToken = (key, value) => {
-    localStorage.setItem(key, value);
+export const SetUserToken = (value) => {
+    localStorage.setItem('token', value);
 }
 
 

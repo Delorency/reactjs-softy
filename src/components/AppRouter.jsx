@@ -1,20 +1,35 @@
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom';
 
-import {routers} from '../router'
+import {AuthRouter, NotAuthRouter} from '../router';
+
+import {CheckUserToken} from '../utils/UsersUtils';
 
 
 const AppRouter = () => {
     return (
-        <Routes>
-            {routers.map((route)=>(
-                <Route
-                    key={route.id}
-                    path={route.path}
-                    element={<route.component/>}
-                    exact={route.exact}
-                />
-            ))}
-        </Routes>
+            CheckUserToken()
+            ?
+            <Routes>
+                {AuthRouter.map((route)=>(
+                    <Route
+                        key={route.id}
+                        path={route.path}
+                        element={<route.component/>}
+                        exact={route.exact}
+                    />
+                ))}
+            </Routes>
+            :
+            <Routes>
+                {NotAuthRouter.map((route)=>(
+                    <Route
+                        key={route.id}
+                        path={route.path}
+                        element={<route.component/>}
+                        exact={route.exact}
+                    />
+                ))}
+            </Routes>
     )
 }
 

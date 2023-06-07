@@ -1,4 +1,3 @@
-import {useEffect} from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -7,18 +6,12 @@ import IconButton from '@mui/material/IconButton';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import Badge from '@mui/material/Badge';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import ScatterPlot from '@mui/icons-material/ScatterPlot';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import ApiIcon from '@mui/icons-material/Api';
+import Notifications from '@mui/icons-material/Notifications';
 
 
 
 const Navigation = () => {
-  
-  const Account = () => (
-    <>
-    </>
-  )
 
   return (
       <Box sx={{ flexGrow: 1 }}>
@@ -26,7 +19,7 @@ const Navigation = () => {
           <Toolbar style={{'minHeight':'0px'}}>
             <Box>
               <Button>
-                <ScatterPlot style={{'fontSize':'32px', 'color':'#5156B0'}}/>
+                <ApiIcon style={{'fontSize':'32px', 'color':'#5156B0'}}/>
                 </Button>
             </Box>
             <Typography
@@ -42,11 +35,10 @@ const Navigation = () => {
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
               <IconButton
                 size="large"
-                aria-label="show 17 new notifications" 
                 style={{"color":'#5156B0'}}
               >
-                <Badge color="error">
-                  <NotificationsIcon />
+                <Badge badgeContent={3} color="primary">
+                  <Notifications />
                 </Badge>
               </IconButton>
             </Box>

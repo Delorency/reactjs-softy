@@ -1,4 +1,4 @@
-import {GetAuthHeader} from '../utils/users';
+import {GetAuthHeader} from '../utils/UsersUtils';
 
 import axios from 'axios';
 
