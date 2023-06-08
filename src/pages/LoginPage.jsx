@@ -11,7 +11,8 @@ import Users from '../API/UsersAPI';
 
 const LoginPage = () => {
     const LoginHandler = async (event) => {
-        await Users.LoginUser(event.target.email, event.target.password);
+        event.preventDefault();
+        await Users.LoginUser(event.target.email.value, event.target.password.value);
     }
     return (
         <>

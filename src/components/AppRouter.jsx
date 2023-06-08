@@ -1,4 +1,4 @@
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, Navigate} from 'react-router-dom';
 
 import {AuthRouter, NotAuthRouter} from '../router';
 
@@ -18,6 +18,7 @@ const AppRouter = () => {
                         exact={route.exact}
                     />
                 ))}
+                <Route path="/" element={<Navigate replace to="/" />} />
             </Routes>
             :
             <Routes>
@@ -29,6 +30,7 @@ const AppRouter = () => {
                         exact={route.exact}
                     />
                 ))}
+                <Route path="/" element={<Navigate replace to="/login" />} />
             </Routes>
     )
 }
