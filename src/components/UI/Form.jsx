@@ -1,10 +1,10 @@
 import styles from '../../styles/Form.module.css';
 
 
-const Form = (props) => {
+const Form = ({children, ...props}) => {
     return (
-        <form onSubmit={props.onSubmit} className={styles.form}>
-            {props.children}
+        <form {...props} method='POST' className={styles.form}>
+            {children}
         </form>
     )
 }

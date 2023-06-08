@@ -1,16 +1,11 @@
-const Container = (props) => {
+const Container = ({children, ...props}) => {
     const divStyle = {
-        'maxWidth':props.maxWidth || 'inherit',
-        'display':props.display || 'block',
-        'flexDirection':props.flexDirection || 'row',
-        'textAlign':props.textAlign || 'inherit',
-        'alignItems':props.alignItems || 'inherit',
-        'width':'100%',
-        'margin':props.margin || '0 auto 0'
+        ...props,
+        'width':'100%'
     }
     return (
         <div style={divStyle}>
-            {props.children}
+            {children}
         </div>
     )
 }
