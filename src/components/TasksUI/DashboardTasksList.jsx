@@ -13,9 +13,18 @@ const DashboardTasksList = () => {
     useEffect(()=>{
         Tasks.getAllUserTasks(setTasks);
     }, [])
+
     return (
-        <Container display='flex' flexDirection='column' maxWidth='45%' marginBottom='20px'>
-            <Text marginBottom='40px' fontSize='32px' textAlign='center'>Your tasks</Text>     
+        <Container display='flex' flexDirection='column' width='30%'>
+            <Text marginBottom='40px'
+                fontSize='32px'
+                textAlign='center'
+                background='#DCF7ED'
+                letterSpacing='3px'
+                color='#404040'
+                >
+                Your tasks
+            </Text>    
             {tasks && tasks.map( ({ ...task }) => (
                 <TaskListItem key={task.id}
                     task={task}/>

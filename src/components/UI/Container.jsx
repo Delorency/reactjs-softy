@@ -1,11 +1,11 @@
-const Container = ({children, className, ...props}) => {
+const Container = ({children, className, onClick, ...props}) => {
     const divStyle = {
         margin:0,
         padding:0,
         ...props,
     }
     return (
-        <div className={className} style={divStyle}>
+        <div className={className} onClick={onClick} style={divStyle}>
             {children}
         </div>
     )

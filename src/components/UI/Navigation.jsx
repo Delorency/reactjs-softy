@@ -16,7 +16,7 @@ const Navigation = () => {
 
   return (
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" style={{'backgroundColor':'#DEEBFA', 'boxShadow':'none'}}>
+        <AppBar position="static" style={{'backgroundColor':'#EBEBEB', 'boxShadow':'none'}}>
           <Toolbar style={{'minHeight':'0px'}}>
             <Box>
               <Button>

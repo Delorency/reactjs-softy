@@ -36,8 +36,8 @@ const ProjectListItem = ({project}) => {
 
             <Container marginTop='2%' display='flex' justifyContent='flex-end'>
                 <Container marginRight='20px'>
-                    <Tooltip title='Project team quantity'>
-                        <GroupIcon style={{'fontSize':'16px', 'color':'#5156B0', 'marginRight':'2px'}}/>
+                    <Tooltip title='Project team size'>
+                        <GroupIcon style={{'fontSize':'20px', 'color':'#5156B0', 'marginRight':'2px'}}/>
                     </Tooltip>  
                     {project.team
                         ?<Text fontSize='12px' color='#474C4F'>{project.team.length}</Text>
@@ -45,7 +45,7 @@ const ProjectListItem = ({project}) => {
                     }
                 </Container>
                 {project.is_private
-                    ?<Tooltip title='Private project'><LockIcon style={{'fontSize':'16px', 'color':'#5156B0'}}/></Tooltip>
+                    ?<Tooltip title='Private project'><LockIcon style={{'fontSize':'20px', 'color':'#5156B0'}}/></Tooltip>
                     :null
                 }  
             </Container>

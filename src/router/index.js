@@ -1,12 +1,12 @@
 import HomePage from '../pages/HomePage';
-import ScrumProjectsPage from '../pages/ScrumProjectsPage';
-import LoginPage from '../pages/LoginPage';
+import LoginPage from '../pages/LoginPage'; 
+import ManageProjectsPage from '../pages/ManageProjectsPage'; 
 import RegistrationPage from '../pages/RegistrationPage';
 
 
 export const AuthRouter = [
     {id: 1, path: '/', component: HomePage, exact: true},
-    {id: 2, path: '/scrum-project', component: ScrumProjectsPage, exact: true},
+    {id: 1, path: '/manage-projects', component: ManageProjectsPage, exact: true},
 ]
 
 export const NotAuthRouter = [
