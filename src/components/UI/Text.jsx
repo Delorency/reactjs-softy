@@ -1,11 +1,12 @@
 const Text = ({children, ...props}) => {
     const styleH3 = {
-        'margin':'0',
-        'padding':'0',
+        margin:0,
+        padding:0,
+        fontWeight:400,
         ...props,
     }
 
-    return <h3 style={styleH3}>{children}</h3>
+    return <span style={styleH3}>{children}</span>
 }
 
 export default Text;

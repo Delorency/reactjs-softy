@@ -4,10 +4,11 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
 import Badge from '@mui/material/Badge';
 import ApiIcon from '@mui/icons-material/Api';
 import Notifications from '@mui/icons-material/Notifications';
+
+import Text from './Text';
 
 
 
@@ -22,15 +23,13 @@ const Navigation = () => {
                 <ApiIcon style={{'fontSize':'32px', 'color':'#5156B0'}}/>
                 </Button>
             </Box>
-            <Typography
-              variant="h6"
+            <Text
+              fontSize='24px'
               color='#5156B0'
               noWrap
-              component="div"
-              sx={{ display: { xs: 'none', sm: 'block' } }}
             >
-              Softy
-            </Typography>
+              Flower
+            </Text>
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
               <IconButton

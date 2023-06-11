@@ -1,10 +1,11 @@
-const Container = ({children, ...props}) => {
+const Container = ({children, className, ...props}) => {
     const divStyle = {
+        margin:0,
+        padding:0,
         ...props,
-        'width':'100%'
     }
     return (
-        <div style={divStyle}>
+        <div className={className} style={divStyle}>
             {children}
         </div>
     )
