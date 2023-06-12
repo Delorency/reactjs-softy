@@ -49,7 +49,7 @@ const TaskListItem = ({task}) => {
 
                 <Container marginTop='2%' display='flex' justifyContent='flex-end'>
                     <Container marginRight='20px'>
-                        <Tooltip title='Workers quantity'>
+                        <Tooltip title='End at'>
                             <AccessTimeRoundedIcon style={{'fontSize':'20px', 'color':'#5E6569', 'marginRight':'2px'}}/>
                         </Tooltip>
                         {task.end_at

@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import LockIcon from '@mui/icons-material/Lock';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import RememberMeIcon from '@mui/icons-material/RememberMe';
@@ -18,12 +19,18 @@ import styles from '../../styles/Container.module.css'
 
 const ProjectListItem = ({project}) => {
     const [role, setRole] = useState('');
+    const navigate = useNavigate();
 
     useEffect(()=>{
         GetRole(project.team, setRole);
     }, [project.team])
+
+    const redirectHandler = () => {
+        navigate(`/project/${project.id}`);
+    }
     return (
         <Container
+            onClick={redirectHandler}
             className={styles.container}
             border='3px solid #DEEBFA'
             borderRadius='10px'

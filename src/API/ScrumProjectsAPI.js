@@ -48,4 +48,14 @@ export default class Scrums {
       console.log(error);
     });
   }
+  static async getScrumProject(id, setter){
+    const headers = Object.assign({'Content-Type': 'application/json',},GetAuthHeader())
+    await axios.get(`${process.env.REACT_APP_SERVER}/scrum-projects/${id}/`,{
+      headers: headers,
+    }).then(response => {
+      setter(response.data);
+    }).catch(error => {
+      console.log(error);
+    });
+  }
 }
