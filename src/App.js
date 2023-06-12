@@ -4,7 +4,7 @@ import Navigation from './components/UI/Navigation';
 
 import {CheckUserToken} from './utils/UsersUtils'
 
-import './styles/App.css';
+import './styles/App.module.css';
 
 
 

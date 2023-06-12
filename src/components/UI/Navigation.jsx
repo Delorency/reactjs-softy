@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,19 +14,24 @@ import Text from './Text';
 
 
 const Navigation = () => {
+  const navigate = useNavigate()
+
+  const redirectHandler = () => {
+    navigate('/');
+  }
 
   return (
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" style={{'backgroundColor':'#EBEBEB', 'boxShadow':'none'}}>
+        <AppBar position="static" style={{'backgroundColor':'#DEEBFA', 'boxShadow':'none'}}>
           <Toolbar style={{'minHeight':'0px'}}>
             <Box>
-              <Button>
-                <ApiIcon style={{'fontSize':'32px', 'color':'#5156B0'}}/>
+              <Button onClick={redirectHandler}>
+                <ApiIcon style={{'fontSize':'32px', 'color':'#4279E0'}}/>
                 </Button>
             </Box>
             <Text
               fontSize='24px'
-              color='#5156B0'
+              color='#4279E0'
               noWrap
             >
               Flower
@@ -34,7 +40,7 @@ const Navigation = () => {
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
               <IconButton
                 size="large"
-                style={{"color":'#5156B0'}}
+                style={{"color":'#4279E0'}}
               >
                 <Badge badgeContent={3} color="primary">
                   <Notifications />

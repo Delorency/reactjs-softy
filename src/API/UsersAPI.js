@@ -1,10 +1,21 @@
-import {SetUserToken} from '../utils/UsersUtils';
+import {SetUserToken, SetUserInfo, GetAuthHeader} from '../utils/UsersUtils';
 
 import axios from 'axios';
 
 
 export default class Users {
-  static async LoginUser(email, password, setResult, setOpen) {
+  static async GetUserInfo() {
+    const headers = Object.assign({'Content-Type': 'application/json',}, GetAuthHeader());
+    await axios.get(`${process.env.REACT_APP_SERVER}/users/me/`,
+    {
+        headers: headers,
+    }).then(response => {
+      SetUserInfo(response.data);
+    }).catch(error => {
+      console.log(error);
+    })
+  };
+  static async LoginUser(email, password, setResult, setOpen, handleRefresh) {
     const headers = {'Content-Type': 'application/json'}
     await axios.post(`${process.env.REACT_APP_SERVER}/token/login/`,
     {
@@ -15,6 +26,8 @@ export default class Users {
         headers: headers,
     }).then(response => {
       SetUserToken(response.data.auth_token);
+      this.GetUserInfo();
+      handleRefresh();
     }).catch(error => {
       if (error.response) {
         setResult('Invalid email or password');

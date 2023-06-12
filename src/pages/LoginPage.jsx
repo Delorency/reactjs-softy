@@ -1,4 +1,5 @@
-import {useState, forwardRef} from 'react'
+import {useState, forwardRef} from 'react';
+
 import Heading from '../components/UI/Heading';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
@@ -17,6 +18,9 @@ const Alert = forwardRef(function Alert(props, ref) {
 });
 
 const LoginPage = () => {
+    const handleRefresh = () => {
+        window.location.reload();
+    };
     const [open, setOpen] = useState(false);
     const [result, setResult] = useState(null);
 
@@ -29,7 +33,7 @@ const LoginPage = () => {
             event.target.email.value,
             event.target.password.value,
             setResult,
-            setOpen);
+            setOpen, handleRefresh);
     }
     return (
         <>
@@ -37,7 +41,7 @@ const LoginPage = () => {
         <Container maxWidth='440px' margin='60px auto 0'>
 
             <Container display='flex' flexDirection='column' textAlign='center'> 
-                <ApiIcon style={{'fontSize':'128px', 'color':'#5156B0', 'margin':'0 auto 0'}}/>
+                <ApiIcon style={{'fontSize':'128px', 'color':'#4279E0', 'margin':'0 auto 0'}}/>
                 <Text marginBottom='30px' fontSize='64px'>Flower</Text>
             </Container>
 

@@ -1,8 +1,0 @@
-.container {
-    
-}
-.container:hover{
-    cursor:pointer;
-    box-shadow: 5px 5px #DEEBFA;
-    transform: translate(-5px, -5px);
-}

@@ -18,13 +18,12 @@ const ScrumProjectsList = () => {
                 marginBottom='40px'
                 fontSize='32px'
                 textAlign='center'
-                background='#DCF7ED'
+                background='#F1F1F4'
                 letterSpacing='3px'
-                color='#404040'
                 >
                 Scrum
             </Text>     
-            {projects && projects.map( ({ ...project }) => (
+            {projects && projects.slice(0,2).map( ({ ...project }) => (
                 <ProjectListItem key={project.id}
                     project={project}/>
             ))}

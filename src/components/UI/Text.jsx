@@ -3,6 +3,7 @@ const Text = ({children, ...props}) => {
         margin:0,
         padding:0,
         fontWeight:400,
+        color:'#494E52',
         ...props,
     }
 

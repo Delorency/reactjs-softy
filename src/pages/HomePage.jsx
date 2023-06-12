@@ -24,7 +24,7 @@ const HomePage = () => {
                             <KanbanProjectsList/>
                         </Container>
                         <Button onClick={manageProjectRedirect}
-                            style={{'width':'100%', 'background':'#26B2AC'}}
+                            style={{'width':'100%', 'background':'#4279E0 '}}
                             type='button'
                             color='primary'
                             size='medium'

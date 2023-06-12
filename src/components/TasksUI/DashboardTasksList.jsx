@@ -19,9 +19,8 @@ const DashboardTasksList = () => {
             <Text marginBottom='40px'
                 fontSize='32px'
                 textAlign='center'
-                background='#DCF7ED'
+                background='#F1F1F4'
                 letterSpacing='3px'
-                color='#404040'
                 >
                 Your tasks
             </Text>    
