@@ -1,13 +1,21 @@
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage'; 
-import ManageProjectsPage from '../pages/ManageProjectsPage'; 
+
 import RegistrationPage from '../pages/RegistrationPage';
+
+import ManageProjectsPage from '../pages/ManageProjectsPage'; 
+
 import ProjectCreatePage from '../pages/ProjectCreatePage';
 import ProjectPage from '../pages/ProjectPage';
 import BacklogCreatePage from '../pages/BacklogCreatePage';
 import BacklogUpdatePage from '../pages/BacklogUpdatePage';
+
 import SprintCreatePage from '../pages/SprintCreatePage';
 import SprintUpdatePage from '../pages/SprintUpdatePage';
+
+import ProjectTeamPage from '../pages/ProjectTeamPage';
+import MemberUpdatePage from '../pages/MemberUpdatePage';
+import InvitePage from '../pages/InvitePage';
 
 
 export const AuthRouter = [
@@ -21,6 +29,12 @@ export const AuthRouter = [
 
     {id: 7, path: '/create-sprint/:id', component: SprintCreatePage, exact: true},
     {id: 8, path: '/update-sprint/:id', component: SprintUpdatePage, exact: true},
+
+    {id: 9, path: '/project/:id/team', component: ProjectTeamPage, exact: true},
+    {id: 10, path: '/update-member/:id', component: MemberUpdatePage, exact: true},
+    
+    {id: 11, path: '/invite', component: InvitePage, exact: true},
+
 ]
 
 export const NotAuthRouter = [

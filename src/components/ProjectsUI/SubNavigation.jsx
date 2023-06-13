@@ -12,7 +12,7 @@ const SubNavigation = ({id}) => {
         navigation(`/project/${id}`);
     }
     const teamRedirect = () => {
-        navigation(`/project-team/${id}`);
+        navigation(`/project/${id}/team`);
     }
     const settingsRedirect = () => {
         navigation(`/project-settings/${id}`);

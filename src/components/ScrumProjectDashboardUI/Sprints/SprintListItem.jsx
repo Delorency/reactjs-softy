@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import Divider from '@mui/material/Divider';
+import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
@@ -17,11 +18,15 @@ const SprintListItem = ({sprint}) => {
         navigate(`/update-sprint/${sprint.id}`);
     }
 
+    const SprintPage = () => {
+        navigate(`/sprint/${sprint.id}`)
+    }
+
     return (
         <>
         <Container
             border='3px solid #DEEBFA'
-            borderRadius='3px'
+            borderRadius='15px'
             padding='5px'
             marginBottom='10px'
             display='flex'
@@ -47,9 +52,10 @@ const SprintListItem = ({sprint}) => {
                 </Container>
             </Container>
             <Container>
+                <Button onClick={SprintPage}>Open sprint</Button>
                 {sprint.backlogs.map(({...backlog}) => (
-                    <Container>
-                        <SprintBacklogItem key = {backlog.id} backlog={backlog} id={sprint.id}/>
+                    <Container key={backlog.id}>
+                        <SprintBacklogItem backlog={backlog} id={sprint.id}/>
                     </Container>
                 ))}
             </Container>
