@@ -2,8 +2,6 @@ import {useState, useEffect, forwardRef} from 'react';
 import {useNavigate} from 'react-router-dom';
 
 import MuiAlert from '@mui/material/Alert';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
 import Snackbar from '@mui/material/Snackbar';
 import Button from '@mui/material/Button';
 
@@ -11,7 +9,6 @@ import Container from '../../UI/Container';
 import Text from '../../UI/Text'; 
 import Form from '../../UI/Form';
 
-import Backlogs from '../../../API/BacklogsAPI';
 import Sprints from '../../../API/SprintsAPI';
 
 
@@ -20,23 +17,18 @@ const Alert = forwardRef(function Alert(props, ref) {
 });
 
 
-const BacklogUpdate = ({id}) => {
+const SprintUpdate = ({id}) => {
     const navigate = useNavigate();
-    const [backlog, setBacklog] = useState({});
-    const [selectValue, setSelectValue] = useState('Easy');
+    const [, setSprint] = useState({});
+
     const [open, setOpen] = useState(false);
     const [result, setResult] = useState('Ivalid input');
     const [success, setSuccess] = useState(null);
 
-    const changeValue = (event) => {
-        setSelectValue(event.target.value);
-    }
-
     useEffect(()=>{
-        Backlogs.getBacklog(
+        Sprints.getSprint(
             id,
-            setBacklog,
-            setSelectValue
+            setSprint,
         )
     }, [id])
 
@@ -46,28 +38,18 @@ const BacklogUpdate = ({id}) => {
 
     const UpdateHandler = async (event) => {
         event.preventDefault();
-        Backlogs.updateBacklog(
+        Sprints.updateSprint(
             id,
-            event.target.name.value,
-            event.target.difficult.value,
+            event.target.start_at.value,
+            event.target.end_at.value,
             setResult,
             setOpen,
             setSuccess)
     }
 
-    const handlerAddToSprint = (event) => {
-        event.preventDefault();
-        Sprints.changeBacklogsSprint(
-            event.target.sprint.value,
-            [id],
-            false,
-            handleToBacklogs
-        )
-    }
-
     const DeleteHandler = async (event) => {
         event.preventDefault();
-        Backlogs.deleteBacklog(id, navigate, setResult, setOpen, setSuccess);
+        Sprints.deleteSprint(id, navigate, setResult, setOpen, setSuccess);
     }
 
     const handleClose = () => {
@@ -91,52 +73,32 @@ const BacklogUpdate = ({id}) => {
             <Container display='flex' flexDirection='column'>
                 <Form onSubmit={UpdateHandler}>
                     <input
-                        type='text'
-                        name='name'
-                        placeholder={backlog.name}
-                    />
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={selectValue}
-                        name='difficult'
-                        style={{'marginBottom':'20px'}}
-                        onChange={changeValue}
-                        >
-                        <MenuItem value='Easy'>Easy</MenuItem>
-                        <MenuItem value='Medium'>Medium</MenuItem>
-                        <MenuItem value='Hard'>Hard</MenuItem>
-                    </Select>   
+                        type='date'
+                        name='start_at'
+                        placeholder='Start at'
+                    />          
+                    <input
+                        type='date'
+                        name='end_at'
+                        placeholder='End at'
+                    />  
                     <Container display='flex' justifyContent='space-between' marginBottom='20px'>               
                         <Button
                             type='submit'
                             color='success'
                             size='medium'
                             variant='outlined'
-                        >Update backlog</Button>
+                        >Update sprint</Button>
                         <Button
                             onClick={DeleteHandler}
                             type='submit'
                             color='error'
                             size='medium'
                             variant='outlined'
-                        >Delete backlog</Button>
+                        >Delete sprint</Button>
                     </Container>
+                    <Button style={{'background':'#F1F1F4', 'color':'#2E3133'}} onClick={handleToBacklogs}>Back</Button>
                 </Form>
-                <Form onSubmit={handlerAddToSprint}>  
-                    <input style={{'height':'18px'}}
-                        type='text'
-                        name='sprint'
-                        placeholder="Sprint id"
-                    />            
-                    <Button
-                        type='submit'
-                        color='success'
-                        size='medium'
-                        variant='outlined'
-                    >Add</Button>
-                </Form>
-                <Button style={{'background':'#F1F1F4', 'color':'#2E3133'}} onClick={handleToBacklogs}>Back</Button>
             </Container>
         </Container>
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
@@ -155,4 +117,4 @@ const BacklogUpdate = ({id}) => {
     )
 }
 
-export default BacklogUpdate;
+export default SprintUpdate;

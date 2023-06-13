@@ -5,22 +5,22 @@ import Divider from '@mui/material/Divider';
 
 import Container from '../../UI/Container'; 
 import Text from '../../UI/Text';
-import BacklogListItem from './BacklogListItem';
+import SprintListItem from './SprintListItem';
 
-import Backlogs from '../../../API/BacklogsAPI';
+import Sprints from '../../../API/SprintsAPI';
 
 import styles from '../../../styles/TaskListItem.module.css';
 
 
 
-const BacklogList = ({id}) => {  
+const SprintList = ({id}) => {  
     const navigate = useNavigate();
-    const [backlogs, setBacklogs] = useState([]);
+    const [sprints, setSprints] = useState([]);
     useEffect(()=>{
-        Backlogs.getProjectBacklogs(id, setBacklogs);
+        Sprints.getProjectSprints(id, setSprints);
     }, [id])
-    const createBacklogRedirect = () => {
-        navigate(`/create-backlog/${id}`);
+    const createSprintRedirect = () => {
+        navigate(`/create-sprint/${id}`);
     }
     return (
         <>
@@ -33,26 +33,26 @@ const BacklogList = ({id}) => {
                 background='#F1F1F4'
                 letterSpacing='3px'
                 >
-                Backlogs
+                Sprints
             </Text> 
             <Container
                 className={styles.list_item}
-                onClick={createBacklogRedirect}
+                onClick={createSprintRedirect}
                 borderRadius='3px'
                 padding='5px'
                 background='#4279E0'
                 textAlign='center'
             >
-                <Text color='white'>Create backlog</Text>
+                <Text color='white'>Create sprint</Text>
             </Container>
             <Divider orientation="horizontal" flexItem style={{'margin':'20px 0 20px'}}/>
-            {backlogs && backlogs.map( ({ ...backlog }) => (
-                <BacklogListItem key={backlog.id}
-                    backlog={backlog}/>
+            {sprints && sprints.map( ({ ...sprint }) => (
+                <SprintListItem key={sprint.id}
+                    sprint={sprint}/>
             ))}
         </Container>
         </>
     )
 }
 
-export default BacklogList;
+export default SprintList;

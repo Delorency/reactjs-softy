@@ -6,6 +6,8 @@ import ProjectCreatePage from '../pages/ProjectCreatePage';
 import ProjectPage from '../pages/ProjectPage';
 import BacklogCreatePage from '../pages/BacklogCreatePage';
 import BacklogUpdatePage from '../pages/BacklogUpdatePage';
+import SprintCreatePage from '../pages/SprintCreatePage';
+import SprintUpdatePage from '../pages/SprintUpdatePage';
 
 
 export const AuthRouter = [
@@ -16,6 +18,9 @@ export const AuthRouter = [
 
     {id: 5, path: '/create-backlog/:id', component: BacklogCreatePage, exact: true},
     {id: 6, path: '/update-backlog/:id', component: BacklogUpdatePage, exact: true},
+
+    {id: 7, path: '/create-sprint/:id', component: SprintCreatePage, exact: true},
+    {id: 8, path: '/update-sprint/:id', component: SprintUpdatePage, exact: true},
 ]
 
 export const NotAuthRouter = [
