@@ -3,15 +3,15 @@ import {useParams} from 'react-router-dom'
 
 import Divider from '@mui/material/Divider';
 
-import Container from '../components/UI/Container';
-import Heading from '../components/UI/Heading';
-import BacklogList from '../components/ScrumProjectDashboardUI/Backlogs/BacklogList';
-import SprintList from '../components/ScrumProjectDashboardUI/Sprints/SprintList';
+import Container from '../../components/UI/Container';
+import Heading from '../../components/UI/Heading';
+import BacklogList from '../../components/ScrumProjectDashboardUI/Backlogs/BacklogList';
+import SprintList from '../../components/ScrumProjectDashboardUI/Sprints/SprintList';
 
-import Scrums from '../API/ScrumProjectsAPI';
-import SubNavigation from '../components/ProjectsUI/SubNavigation';
+import Scrums from '../../API/ScrumProjectsAPI';
+import SubNavigation from '../../components/ProjectsUI/SubNavigation';
 
-import ProjectInfo from '../components/ScrumProjectDashboardUI/ProjectInfo';
+import ProjectInfo from '../../components/ScrumProjectDashboardUI/ProjectInfo';
 
 
 

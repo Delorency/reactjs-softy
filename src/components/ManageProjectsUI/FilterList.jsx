@@ -7,27 +7,42 @@ import '../../styles/Button.module.css';
 
 
 
-const FilterList = ({setter, projects_filter, projects, tags, tags_setter}) => {
+const FilterList = ({setter, projects, tagrole, tagtype, setTagrole, setTagtype}) => {
+    const roleFilter = (role) => {
+        setter(projects.filter(
+            project=>project.team.some(
+                member=>member.role===role && member.user.username===localStorage.getItem('user_username'))
+        ));
+    }
+    const typeFilter = (res) => {
+        setter(projects.filter(project=>project.is_scrum===res))
+    }
     const filterHandler = (event) => {
-        if (event.target.name)
-            setter(projects_filter.filter(
-                project=>project.team.some(
-                    member=>member.role===event.target.name && member.user.username===localStorage.getItem('user_username'))
-            ));
-            tags_setter(tags.concat([event.target.name]));
+        if (event.target.name !== tagrole){
+            roleFilter(event.target.name);
+            setTagrole(event.target.name);
+        }else{
+            setter(projects);
+            setTagrole('');
+            setTagtype('');
+        }
+        
     }
     const projectTypeFilterHandler = (event) => {
-        let res = false 
-        if (event.target.name === 'scrum') {
-            res=true
-            tags_setter(tags.concat(['scrum']));
-        }else {tags_setter(tags.concat(['kanban']));}
-        setter(projects_filter.filter(project=>project.is_scrum===res))
+        if (event.target.name !== tagtype){
+            typeFilter(event.target.name === 'scrum');
+            (event.target.name === 'scrum') ? setTagtype('scrum') : setTagtype('kanban')
+        }else{
+            setter(projects)
+            setTagtype('');
+            setTagrole('');
+        }
     }
 
     const filterRefreshHandler = () => {
         setter(projects);
-        tags_setter([]);
+        setTagrole('');
+        setTagtype('');
     }
     return (
         <Container display='flex' flexDirection='column'>

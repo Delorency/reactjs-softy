@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
 import AppRouter from './components/AppRouter';
-import Navigation from './components/UI/Navigation';
+import Navigation from './components/Navigation';
 
 import {CheckUserToken} from './utils/UsersUtils'
 

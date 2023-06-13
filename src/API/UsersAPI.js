@@ -1,10 +1,10 @@
-import {SetUserToken, SetUserInfo, GetAuthHeader} from '../utils/UsersUtils';
+import {SetUserToken, SetUserInfo, GetAuthHeader, RemoveUserInfo} from '../utils/UsersUtils';
 
 import axios from 'axios';
 
 
 export default class Users {
-  static async GetUserInfo() {
+  static async getUserInfo() {
     const headers = Object.assign({'Content-Type': 'application/json',}, GetAuthHeader());
     await axios.get(`${process.env.REACT_APP_SERVER}/users/me/`,
     {
@@ -15,7 +15,8 @@ export default class Users {
       console.log(error);
     })
   };
-  static async LoginUser(email, password, setResult, setOpen, handleRefresh) {
+
+  static async loginUser(email, password, setResult, setOpen, handleRefresh) {
     const headers = {'Content-Type': 'application/json'}
     await axios.post(`${process.env.REACT_APP_SERVER}/token/login/`,
     {
@@ -26,7 +27,7 @@ export default class Users {
         headers: headers,
     }).then(response => {
       SetUserToken(response.data.auth_token);
-      this.GetUserInfo();
+      this.getUserInfo();
       handleRefresh();
     }).catch(error => {
       if (error.response) {
@@ -36,7 +37,8 @@ export default class Users {
       console.log(error);
     })
   };
-  static async RegistrationUser(email, username, last_name, first_name, password, setResult, setOpen, setSuccess) {
+
+  static async registrationUser(email, username, last_name, first_name, password, setResult, setOpen, setSuccess) {
     const headers = {'Content-Type': 'application/json'}
     await axios.post(`${process.env.REACT_APP_SERVER}/users/`,
     {
@@ -69,4 +71,18 @@ export default class Users {
       console.log(error);
     })
   }
+
+  static async logoutUser(redirectHandler, handleRefresh) {
+    const headers = Object.assign({'Content-Type': 'application/json',}, GetAuthHeader());
+    await axios.post(`${process.env.REACT_APP_SERVER}/token/logout/`,{},
+    {
+        headers: headers,
+    }).then(response => {
+      RemoveUserInfo();
+      redirectHandler();
+      handleRefresh();
+    }).catch(error => {
+      console.log(error);
+    })
+  };
 }

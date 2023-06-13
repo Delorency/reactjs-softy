@@ -23,10 +23,10 @@ const KanbanProjectsList = () => {
                 >
                 Kanban
             </Text>   
-            {projects && projects.slice(0,2).map( ({ ...project }) => (
+            {/* {projects && projects.slice(0,2).map( ({ ...project }) => (
                 <ProjectListItem key={project.id}
                     project={project}/>
-            ))}
+            ))} */}
         </Container>
     )
 }

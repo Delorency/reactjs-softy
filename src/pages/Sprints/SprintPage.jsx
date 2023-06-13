@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 
-import Container from "../components/UI/Container";
+import Container from "../../components/UI/Container";
 
-import Sprint from '../components/SprintDashboard/Sprint';
+import Sprint from '../../components/SprintDashboard/Sprint';
 
 
 

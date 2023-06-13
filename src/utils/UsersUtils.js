@@ -26,3 +26,11 @@ export const SetUserInfo = (data) => {
     localStorage.setItem('user_last_name', data.last_name);
     localStorage.setItem('user_first_name', data.first_name);
 }
+
+export const RemoveUserInfo = (data) => {
+    localStorage.removeItem('user_email');
+    localStorage.removeItem('user_username');
+    localStorage.removeItem('user_last_name');
+    localStorage.removeItem('user_first_name');
+    localStorage.removeItem('token');
+}

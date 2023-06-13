@@ -1,5 +1,5 @@
 import {useState, forwardRef} from 'react';
-import Heading from '../components/UI/Heading';
+import Heading from '../../components/UI/Heading';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import ApiIcon from '@mui/icons-material/Api';
@@ -7,11 +7,13 @@ import ApiIcon from '@mui/icons-material/Api';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
-import Text from '../components/UI/Text';
-import Container from '../components/UI/Container';
-import Form from '../components/UI/Form';
+import Text from '../../components/UI/Text';
+import Container from '../../components/UI/Container';
+import Form from '../../components/UI/Form';
 
-import Users from '../API/UsersAPI';
+import Users from '../../API/UsersAPI';
+
+
 
 const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -27,7 +29,7 @@ const RegistrationPage = () => {
     };
     const RegistrationHandler = async (event) => {
         event.preventDefault();
-        await Users.RegistrationUser(
+        await Users.registrationUser(
             event.target.email.value,
             event.target.username.value,
             event.target.last_name.value,

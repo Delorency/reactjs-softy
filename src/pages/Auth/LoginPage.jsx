@@ -1,17 +1,19 @@
 import {useState, forwardRef} from 'react';
 
-import Heading from '../components/UI/Heading';
+import Heading from '../../components/UI/Heading';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import Link from '@mui/material/Link';
 import ApiIcon from '@mui/icons-material/Api';
 
-import Container from '../components/UI/Container';
-import Text from '../components/UI/Text';
-import Form from '../components/UI/Form';
+import Container from '../../components/UI/Container';
+import Text from '../../components/UI/Text';
+import Form from '../../components/UI/Form';
 
-import Users from '../API/UsersAPI';
+import Users from '../../API/UsersAPI';
+
+
 
 const Alert = forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -29,7 +31,7 @@ const LoginPage = () => {
     };
     const LoginHandler = async (event) => {
         event.preventDefault();
-        await Users.LoginUser(
+        await Users.loginUser(
             event.target.email.value,
             event.target.password.value,
             setResult,

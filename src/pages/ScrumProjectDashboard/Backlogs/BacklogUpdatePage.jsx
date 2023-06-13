@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 
-import Container from "../components/UI/Container";
+import Container from "../../../components/UI/Container";
 
-import BacklogUpdate from "../components/ScrumProjectDashboardUI/Backlogs/BacklogUpdate";
+import BacklogUpdate from "../../../components/ScrumProjectDashboardUI/Backlogs/BacklogUpdate";
 
 
 

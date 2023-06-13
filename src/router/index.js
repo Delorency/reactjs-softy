@@ -1,21 +1,24 @@
 import HomePage from '../pages/HomePage';
-import LoginPage from '../pages/LoginPage'; 
 
-import RegistrationPage from '../pages/RegistrationPage';
+import LoginPage from '../pages/Auth/LoginPage'; 
+import RegistrationPage from '../pages/Auth/RegistrationPage';
 
-import ManageProjectsPage from '../pages/ManageProjectsPage'; 
+import ManageProjectsPage from '../pages/ProjectManage/ManageProjectsPage'; 
 
-import ProjectCreatePage from '../pages/ProjectCreatePage';
-import ProjectPage from '../pages/ProjectPage';
-import BacklogCreatePage from '../pages/BacklogCreatePage';
-import BacklogUpdatePage from '../pages/BacklogUpdatePage';
+import ProjectPage from '../pages/Projects/ProjectPage';
+import ProjectCreatePage from '../pages/Projects/ProjectCreatePage';
 
-import SprintCreatePage from '../pages/SprintCreatePage';
-import SprintUpdatePage from '../pages/SprintUpdatePage';
+import BacklogCreatePage from '../pages/ScrumProjectDashboard/Backlogs/BacklogCreatePage';
+import BacklogUpdatePage from '../pages/ScrumProjectDashboard/Backlogs/BacklogUpdatePage';
 
-import ProjectTeamPage from '../pages/ProjectTeamPage';
-import MemberUpdatePage from '../pages/MemberUpdatePage';
-import InvitePage from '../pages/InvitePage';
+import SprintCreatePage from '../pages/ScrumProjectDashboard/Sprints/SprintCreatePage';
+import SprintUpdatePage from '../pages/ScrumProjectDashboard/Sprints/SprintUpdatePage';
+
+import ProjectTeamPage from '../pages/ProjectTeam/ProjectTeamPage';
+import MemberUpdatePage from '../pages/ProjectTeam/MemberUpdatePage';
+
+import InvitePage from '../pages/Proposals/InvitePage';
+
 
 
 export const AuthRouter = [

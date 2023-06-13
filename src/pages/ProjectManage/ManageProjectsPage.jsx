@@ -1,7 +1,7 @@
-import Container from '../components/UI/Container';
-import Heading from '../components/UI/Heading';
+import Container from '../../components/UI/Container';
+import Heading from '../../components/UI/Heading';
 
-import ProjectsList from '../components/ManageProjectsUI/ProjectsList';
+import ProjectsList from '../../components/ManageProjectsUI/ProjectsList';
 
 
 

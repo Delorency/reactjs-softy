@@ -1,7 +1,7 @@
-import Container from "../components/UI/Container";
 import { useParams } from "react-router-dom";
+import Container from "../../../components/UI/Container";
 
-import SprintCreate from "../components/ScrumProjectDashboardUI/Sprints/SprintCreate";
+import SprintCreate from "../../../components/ScrumProjectDashboardUI/Sprints/SprintCreate";
 
 
 

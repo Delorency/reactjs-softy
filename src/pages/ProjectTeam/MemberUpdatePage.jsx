@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 
-import Container from "../components/UI/Container";
-import Heading from "../components/UI/Heading";
+import Container from "../../components/UI/Container";
+import Heading from "../../components/UI/Heading";
 
-import UpdateMember from "../components/ProjectsUI/Team/UpdateMember";
+import UpdateMember from "../../components/ProjectsUI/Team/UpdateMember";
 
 
 

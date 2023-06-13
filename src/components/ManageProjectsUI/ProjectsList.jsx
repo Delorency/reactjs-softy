@@ -17,7 +17,8 @@ import Scrums from '../../API/ScrumProjectsAPI';
 const ProjectsList = () => {
     const [projects, setProjects] = useState([]);
     const [filters, setFilters] = useState([]);
-    const [tags, setTags] = useState([]);
+    const [tagrole, setTagrole] = useState('');
+    const [tagtype, setTagtype] = useState('');
 
     const navigate = useNavigate();
 
@@ -43,18 +44,19 @@ const ProjectsList = () => {
                 Projects
             </Text> 
             <Container display='flex' marginBottom='20px'>
-                {tags.map(tag => (
-                    <Text marginRight='30px'>{tag}</Text>
-                ))}
+                <Text marginRight='30px'>{tagrole}</Text>
+                <Text marginRight='30px'>{tagtype}</Text>
             </Container>
             <Container display='flex' flexDirection='row' justifyContent='space-between'>
                 <Container width='20%'>
                     <FilterList 
-                        setter={setFilters}
-                        projects_filter={filters}
-                        projects={projects}
-                        tags = {tags}
-                        tags_setter={setTags}/>
+                        setter = {setFilters}
+                        projects = {projects}
+                        tagrole = {tagrole}
+                        tagtype = {tagtype}
+                        setTagrole = {setTagrole}
+                        setTagtype = {setTagtype}
+                    />
                 </Container>    
 
                 <Divider orientation="vertical" flexItem style={{'marginLeft':'20px', 'marginRight':'20px'}}/>

@@ -5,13 +5,13 @@ import TableChartIcon from '@mui/icons-material/TableChart';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 
-import Container from '../components/UI/Container';
-import Text from '../components/UI/Text';
-import Heading from '../components/UI/Heading';
+import Container from '../../components/UI/Container';
+import Text from '../../components/UI/Text';
+import Heading from '../../components/UI/Heading';
 
-import ProjectCreate from '../components/ManageProjectsUI/ProjectCreate';
+import ProjectCreate from '../../components/ManageProjectsUI/ProjectCreate';
 
-import styles from '../styles/Container.module.css'
+import styles from '../../styles/Container.module.css'
 
 
 

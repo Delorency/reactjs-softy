@@ -1,14 +1,14 @@
 import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom';
 
-import Container from '../components/UI/Container';
-import Text from '../components/UI/Text';
-import Heading from '../components/UI/Heading';
+import Container from '../../components/UI/Container';
+import Text from '../../components/UI/Text';
+import Heading from '../../components/UI/Heading';
 
-import SubNavigation from '../components/ProjectsUI/SubNavigation';
+import SubNavigation from '../../components/ProjectsUI/SubNavigation';
 
-import Scrums from '../API/ScrumProjectsAPI';
-import TeamList from '../components/ProjectsUI/Team/TeamList';
+import Scrums from '../../API/ScrumProjectsAPI';
+import TeamList from '../../components/ProjectsUI/Team/TeamList';
 
 
 
