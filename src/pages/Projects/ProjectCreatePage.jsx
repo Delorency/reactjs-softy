@@ -34,11 +34,11 @@ const ProjectCreatePage = () => {
     return (
         <>
             <Heading title='Create project - Flower'/>
-            <Container display='flex' width='80%' margin='50px auto 0'>
+            <Container display='flex' width='80%' margin='0 auto 0'>
 
                 {openForm
                     ?<ProjectCreate is_scrum={is_scrum}/>
-                    :<Container display='flex' flexDirection='column' margin='0 auto 0'>
+                    :<Container display='flex' flexDirection='column' margin='100px auto 0'>
                         <Container
                             onClick={handlerScrum}
                             cursor='pointer'

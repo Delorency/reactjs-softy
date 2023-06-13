@@ -63,7 +63,7 @@ const ProjectCreate = ({is_scrum}) => {
     return (
         <>
         <Container
-            margin='0 auto 0'
+            margin='20px auto 0'
             borderRadius='10px'
             padding='20px'
             marginBottom='20px'

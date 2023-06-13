@@ -67,7 +67,7 @@ const SprintUpdate = ({id}) => {
             flexDirection='column'
         >
             <Container display='flex' flexDirection='column' margin='0 auto 0'>
-                <Text fontSize='48px' marginBottom='30px'>Update Backlog</Text>
+                <Text fontSize='48px' marginBottom='30px'>Update Sprint</Text>
             </Container>
             
             <Container display='flex' flexDirection='column'>

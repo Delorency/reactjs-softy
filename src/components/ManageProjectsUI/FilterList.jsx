@@ -24,9 +24,7 @@ const FilterList = ({setter, projects, tagrole, tagtype, setTagrole, setTagtype}
         }else{
             setter(projects);
             setTagrole('');
-            setTagtype('');
         }
-        
     }
     const projectTypeFilterHandler = (event) => {
         if (event.target.name !== tagtype){
@@ -35,7 +33,6 @@ const FilterList = ({setter, projects, tagrole, tagtype, setTagrole, setTagtype}
         }else{
             setter(projects)
             setTagtype('');
-            setTagrole('');
         }
     }
 
