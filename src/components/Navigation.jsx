@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -20,11 +21,12 @@ import Users from '../API/UsersAPI';
 
 const Navigation = () => {
   const navigate = useNavigate()
-
   const redirectHandler = () => {
     navigate('/');
   }
-
+  const proposalRedirectHandler = () => {
+    navigate('/proposals')
+  }
   const handleRefresh = () => {
     window.location.reload();
 };
@@ -55,10 +57,10 @@ const Navigation = () => {
                 <IconButton
                   size="large"
                   style={{"color":'#4279E0'}}
+                  onClick={proposalRedirectHandler}
                 >
-                  <Badge badgeContent={3} color="primary">
-                    <Notifications />
-                  </Badge>
+                  <Badge ><Notifications/></Badge>
+
                 </IconButton>
               </Box>
               <Avatar alt="Remy Sharp" src="/images/avatar.jpg" />

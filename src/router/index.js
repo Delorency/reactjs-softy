@@ -17,7 +17,9 @@ import SprintUpdatePage from '../pages/ScrumProjectDashboard/Sprints/SprintUpdat
 import ProjectTeamPage from '../pages/ProjectTeam/ProjectTeamPage';
 import MemberUpdatePage from '../pages/ProjectTeam/MemberUpdatePage';
 
+import ProposalPage from '../pages/Proposals/ProposalPage';
 import InvitePage from '../pages/Proposals/InvitePage';
+import UpdateProposalPage from '../pages/Proposals/ProposalUpdatePage';
 
 
 
@@ -36,7 +38,9 @@ export const AuthRouter = [
     {id: 9, path: '/project/:id/team', component: ProjectTeamPage, exact: true},
     {id: 10, path: '/update-member/:id', component: MemberUpdatePage, exact: true},
     
-    {id: 11, path: '/invite', component: InvitePage, exact: true},
+    {id: 11, path: '/proposals', component: ProposalPage, exact: true},
+    {id: 11, path: '/invite/:id', component: InvitePage, exact: true},
+    {id: 11, path: '/proposal/:id', component: UpdateProposalPage, exact: true},
 
 ]
 
