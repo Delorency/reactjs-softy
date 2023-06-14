@@ -85,11 +85,11 @@ const ProposalCreate = ({id}) => {
                         style={{'marginBottom':'20px'}}
                         onChange={changeValue}
                         >
-                        <MenuItem value='Project owner'>Project owner</MenuItem>
-                        <MenuItem value='Frontend'>Frontend</MenuItem>
                         <MenuItem value='Backend'>Backend</MenuItem>
+                        <MenuItem value='Frontend'>Frontend</MenuItem>
                         <MenuItem value='UX'>UX</MenuItem>
                         <MenuItem value='Design'>Design</MenuItem>
+                        <MenuItem value='Project owner'>Project owner</MenuItem>
                     </Select>               
                         <Button
                             type='submit'

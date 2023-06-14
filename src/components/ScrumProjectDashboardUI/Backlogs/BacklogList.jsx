@@ -46,10 +46,12 @@ const BacklogList = ({id}) => {
                 <Text color='white'>Create backlog</Text>
             </Container>
             <Divider orientation="horizontal" flexItem style={{'margin':'20px 0 20px'}}/>
-            {backlogs && backlogs.map( ({ ...backlog }) => (
-                <BacklogListItem key={backlog.id}
-                    backlog={backlog}/>
-            ))}
+            <Container display='flex' flexDirection='column'>
+                {backlogs && backlogs.map( ({ ...backlog }) => (
+                    <BacklogListItem key={backlog.id}
+                        backlog={backlog}/>
+                ))}
+            </Container>
         </Container>
         </>
     )

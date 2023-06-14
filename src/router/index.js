@@ -21,6 +21,11 @@ import ProposalPage from '../pages/Proposals/ProposalPage';
 import InvitePage from '../pages/Proposals/InvitePage';
 import UpdateProposalPage from '../pages/Proposals/ProposalUpdatePage';
 
+import ProjectSettingsPage from '../pages/ProjectSettings/ProjectSettingsPage';
+
+import ProfilePage from '../pages/Profile/ProfilePage';
+
+
 
 
 export const AuthRouter = [
@@ -39,8 +44,12 @@ export const AuthRouter = [
     {id: 10, path: '/update-member/:id', component: MemberUpdatePage, exact: true},
     
     {id: 11, path: '/proposals', component: ProposalPage, exact: true},
-    {id: 11, path: '/invite/:id', component: InvitePage, exact: true},
-    {id: 11, path: '/proposal/:id', component: UpdateProposalPage, exact: true},
+    {id: 12, path: '/invite/:id', component: InvitePage, exact: true},
+    {id: 13, path: '/proposal/:id', component: UpdateProposalPage, exact: true},
+
+    {id:14, path:'/project-settings/:id', component: ProjectSettingsPage, exaxt:true},
+
+    {id:15, path: '/profile', component: ProfilePage, exact: true},
 
 ]
 

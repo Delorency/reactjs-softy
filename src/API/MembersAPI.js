@@ -14,12 +14,13 @@ export default class Members {
       console.log(error);
     });
   }
-  static async getMember(id, setter){
+  static async getMember(id, setter, setSelectValue){
     const headers = Object.assign({'Content-Type': 'application/json',},GetAuthHeader())
     await axios.get(`${process.env.REACT_APP_SERVER}/members/${id}/`,{
       headers: headers,
     }).then(response => {
       setter(response.data);
+      setSelectValue(response.data.role);
     }).catch(error => {
       console.log(error);
     });

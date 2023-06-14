@@ -21,7 +21,7 @@ const ProjectTeamPage = () => {
 
     return (
         <>
-            <Heading title='Project team - Flower'/>
+            <Heading title='Project Team - Flower'/>
             <Container width='40%' margin='10px auto 10px'>
                 <SubNavigation id={id}/>
             </Container>

@@ -2,16 +2,17 @@ import {useState, useEffect, forwardRef} from 'react';
 import {useNavigate} from 'react-router-dom';
 
 import MuiAlert from '@mui/material/Alert';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
 import Snackbar from '@mui/material/Snackbar';
 import Button from '@mui/material/Button';
 
-import Container from '../../UI/Container'; 
-import Text from '../../UI/Text'; 
+import LockIcon from '@mui/icons-material/Lock';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import Tooltip from '@mui/material/Tooltip';
+
+import Container from '../../UI/Container';  
 import Form from '../../UI/Form';
 
-import Members from '../../../API/MembersAPI';
+import Scrums from '../../../API/ScrumProjectsAPI';
 
 
 const Alert = forwardRef(function Alert(props, ref) {
@@ -19,32 +20,40 @@ const Alert = forwardRef(function Alert(props, ref) {
 });
 
 
-const UpdateMember = ({id}) => {
+const ProjectUpdate = ({id}) => {
     const navigate = useNavigate();
-    const [, setMember] = useState({});
-    const [selectValue, setSelectValue] = useState('Backend');
-
+    const [project, setProject] = useState({});
+    const [check, setCheck] = useState(true);
     const [open, setOpen] = useState(false);
     const [result, setResult] = useState('Ivalid input');
     const [success, setSuccess] = useState(null);
 
+    const changeChecked = () =>{
+        setCheck(!check)
+    }
+
     useEffect(()=>{
-        Members.getMember(
+        Scrums.getScrumProject(
             id,
-            setMember,
-            setSelectValue
+            setProject,
+            setCheck
         )
     }, [id])
 
-    const handleToBacklogs = () => {
-        navigate(-1);
+    const handleToProjectList = () => {
+        navigate('/manage-projects');
+    }
+    const handlerBack = () => {
+        navigate(`/project/${id}`);
     }
 
     const UpdateHandler = async (event) => {
         event.preventDefault();
-        Members.updateMember(
+        Scrums.updateScrumProject(
             id,
-            event.target.role.value,
+            event.target.name.value,
+            event.target.description.value,
+            check,
             setResult,
             setOpen,
             setSuccess)
@@ -52,16 +61,12 @@ const UpdateMember = ({id}) => {
 
     const DeleteHandler = async (event) => {
         event.preventDefault();
-        Members.deleteMember(id, navigate, setResult, setOpen, setSuccess);
+        Scrums.deleteScrumProject(id, handleToProjectList, setResult, setOpen, setSuccess);
     }
 
     const handleClose = () => {
         setOpen(false);
     };
-
-    const changeValue = (event) => {
-        setSelectValue(event.target.value);
-    }
 
     return (
         <>
@@ -73,43 +78,45 @@ const UpdateMember = ({id}) => {
             display='flex'
             flexDirection='column'
         >
-            <Container display='flex' flexDirection='column' margin='0 auto 0'>
-                <Text fontSize='48px' marginBottom='30px'>Update Member</Text>
-            </Container>
             
             <Container display='flex' flexDirection='column'>
                 <Form onSubmit={UpdateHandler}>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={selectValue}
-                        name='role'
-                        style={{'marginBottom':'20px'}}
-                        onChange={changeValue}
-                        >
-                        <MenuItem value='Backend'>Backend</MenuItem>
-                        <MenuItem value='Frontend'>Frontend</MenuItem>
-                        <MenuItem value='UX'>UX</MenuItem>
-                        <MenuItem value='Design'>Design</MenuItem>
-                        <MenuItem value='Project owner'>Project owner</MenuItem>
-                    </Select>   
+                    <input
+                        type='text'
+                        name='name'
+                        placeholder={project.name}
+                    />  
+                    <textarea
+                        type='text'
+                        name='description'
+                        placeholder='Description'
+                        rows="10" cols="65"
+                    /> 
+                    {check
+                        ?<Tooltip onClick={changeChecked}>
+                            <LockIcon style={{'fontSize':'20px', 'color':'#5EEBFA', 'cursor':'pointer', 'marginBottom':'20px'}}/>
+                         </Tooltip>
+                        :<Tooltip onClick={changeChecked}>
+                            <LockOpenIcon style={{'fontSize':'20px', 'color':'#5EEBFA', 'cursor':'pointer', 'marginBottom':'20px'}}/>
+                         </Tooltip>
+                    }     
                     <Container display='flex' justifyContent='space-between' marginBottom='20px'>               
                         <Button
                             type='submit'
                             color='success'
                             size='medium'
                             variant='outlined'
-                        >Update member</Button>
+                        >Update Project</Button>
                         <Button
                             onClick={DeleteHandler}
                             type='submit'
                             color='error'
                             size='medium'
                             variant='outlined'
-                        >Delete member</Button>
+                        >Delete Project</Button>
                     </Container>
-                    <Button style={{'background':'#F1F1F4', 'color':'#2E3133'}} onClick={handleToBacklogs}>Back</Button>
                 </Form>
+                <Button style={{'background':'#F1F1F4', 'color':'#2E3133'}} onClick={handlerBack}>Back</Button>
             </Container>
         </Container>
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
@@ -128,4 +135,4 @@ const UpdateMember = ({id}) => {
     )
 }
 
-export default UpdateMember;
+export default ProjectUpdate;

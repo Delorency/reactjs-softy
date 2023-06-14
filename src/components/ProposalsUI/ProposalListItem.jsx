@@ -27,11 +27,11 @@ const ProposalListItem = ({proposal}) => {
             alignItems='center'
         >
 
-            <Container marginRight='20px' width='15%'>
+            <Container marginRight='20px' width='20%'>
                 <Tooltip title='Vacant role'>
                     <RememberMeIcon style={{'fontSize':'20px', 'color':'#DEEBFA', 'marginRight':'2px', 'cursor':'pointer'}}/>
                 </Tooltip>  
-                <Text fontSize='16px' color='#4279E0'>{proposal.role}</Text>
+                <Text fontSize='14px' color='#4279E0'>{proposal.role}</Text>
             </Container>
 
             <Divider orientation="vertical" flexItem style={{'marginLeft':'10px','marginRight':'10px'}}/>

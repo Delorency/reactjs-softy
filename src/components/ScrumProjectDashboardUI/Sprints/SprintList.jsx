@@ -46,10 +46,12 @@ const SprintList = ({id}) => {
                 <Text color='white'>Create sprint</Text>
             </Container>
             <Divider orientation="horizontal" flexItem style={{'margin':'20px 0 20px'}}/>
-            {sprints && sprints.map( ({ ...sprint }) => (
-                <SprintListItem key={sprint.id}
-                    sprint={sprint}/>
-            ))}
+            <Container display='flex' flexDirection='column'>
+                {sprints && sprints.map( ({ ...sprint }) => (
+                    <SprintListItem key={sprint.id}
+                        sprint={sprint}/>
+                ))}
+            </Container>
         </Container>
         </>
     )

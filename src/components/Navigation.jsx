@@ -5,7 +5,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import Avatar from '@mui/material/Avatar';
 import Badge from '@mui/material/Badge';
 import Tooltip from '@mui/material/Tooltip';
 import ApiIcon from '@mui/icons-material/Api';
@@ -26,6 +25,9 @@ const Navigation = () => {
   }
   const proposalRedirectHandler = () => {
     navigate('/proposals')
+  }
+  const profileRedirect = () => {
+    navigate('/profile');
   }
   const handleRefresh = () => {
     window.location.reload();
@@ -52,7 +54,7 @@ const Navigation = () => {
               Flower
             </Text>
             <Box sx={{ flexGrow: 1 }} />
-            <Container display='flex' width='10%' justifyContent='space-between' alignItems='center'>
+            <Container display='flex' width='15%' justifyContent='space-between' alignItems='center'>
               <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                 <IconButton
                   size="large"
@@ -63,11 +65,11 @@ const Navigation = () => {
 
                 </IconButton>
               </Box>
-              <Avatar alt="Remy Sharp" src="/images/avatar.jpg" />
+              <Text onClick={profileRedirect} cursor='pointer' fontSize='18px'>{localStorage.getItem('user_username')}</Text>
               <Tooltip title='Logout'>
                 <LogoutIcon onClick={LogoutUser}
                 style={{'cursor':'pointer',
-                'fontSize':'20px','color':'#4279E0','marginRight':'2px'}}/>
+                'fontSize':'20px','color':'#4279E0'}}/>
               </Tooltip> 
             </Container>
           </Toolbar>
