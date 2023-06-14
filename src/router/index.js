@@ -25,6 +25,10 @@ import ProjectSettingsPage from '../pages/ProjectSettings/ProjectSettingsPage';
 
 import ProfilePage from '../pages/Profile/ProfilePage';
 
+import SprintPage from '../pages/Sprints/SprintPage';
+
+import TaskCreatePage from '../pages/Tasks/TaskCreatePage';
+
 
 
 
@@ -50,6 +54,10 @@ export const AuthRouter = [
     {id:14, path:'/project-settings/:id', component: ProjectSettingsPage, exaxt:true},
 
     {id:15, path: '/profile', component: ProfilePage, exact: true},
+
+    {id:16, path: '/sprint/:id', component: SprintPage, exact: true},
+    
+    {id:17, path: '/create-task/:id', component: TaskCreatePage, exact: true},
 
 ]
 
