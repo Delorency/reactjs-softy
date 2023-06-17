@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 
 import Container from '../UI/Container'
 import Text from '../UI/Text'
-import ProjectListItem from '../ProjectsUI/ProjectListItem'
+// import ProjectListItem from '../ProjectsUI/ProjectListItem';
 
 import Scrums from '../../API/ScrumProjectsAPI';
 

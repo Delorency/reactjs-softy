@@ -4,7 +4,7 @@ import Divider from '@mui/material/Divider';
 import Container from '../components/UI/Container';
 import Heading from '../components/UI/Heading';
 import ScrumProjectsList from '../components/ScrumProjectsUI/ScrumProjectsList';
-import KanbanProjectsList from '../components/KanbanProjectsUI/KanbanProjectsList';
+// import KanbanProjectsList from '../components/KanbanProjectsUI/KanbanProjectsList';
 import DashboardTasksList from '../components/TasksUI/DashboardTasksList';
 
 
@@ -21,7 +21,6 @@ const HomePage = () => {
                     <Container display='flex' flexDirection='column' width='50%'>
                         <Container display='flex' justifyContent='space-between'>
                             <ScrumProjectsList/>
-                            <KanbanProjectsList/>
                         </Container>
                         <Button onClick={manageProjectRedirect}
                             style={{'width':'100%', 'background':'#4279E0 '}}
