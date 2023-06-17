@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 
 import Container from "../../components/UI/Container";
+import Heading from "../../components/UI/Heading";
 
 import Sprint from '../../components/SprintDashboard/Sprint';
 
@@ -21,6 +22,7 @@ const SprintPage = () => {
     }, [id])
     return (
         <>
+            <Heading title='Sprint Dashboard - Flower'/>
             {sprint
                 ?<Container width='80vh' margin='10px auto 10px'>
                     <SubNavigation id={sprint.scrum_project}/>

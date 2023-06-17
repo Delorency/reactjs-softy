@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react';
 
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+
 import Container from '../UI/Container'
 import Text from '../UI/Text';
 
@@ -25,6 +27,14 @@ const ProposalList = () => {
                 >
                 Your Proposals
             </Text>   
+            {proposals && proposals.length === 0
+                ?
+                <Container margin='0 auto 0' display='flex' flexDirection='column'>
+                    <SentimentVeryDissatisfiedIcon style={{'fontSize':'128px', 'margin':'0 auto 30px'}}/>
+                    <Text fontSize='32px' textAlign='center'>List is empty</Text>
+                </Container>
+                : null
+            }
             {proposals && proposals.map( ({ ...proposal}) => (
                 <ProposalListItem key={proposal.id}
                 proposal={proposal}/>
