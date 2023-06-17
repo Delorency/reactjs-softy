@@ -22,7 +22,7 @@ const SprintPage = () => {
     return (
         <>
             {sprint
-                ?<Container width='40%' margin='10px auto 10px'>
+                ?<Container width='80vh' margin='10px auto 10px'>
                     <SubNavigation id={sprint.scrum_project}/>
                 </Container>
                 :null
