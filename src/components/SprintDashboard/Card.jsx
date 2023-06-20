@@ -1,6 +1,10 @@
 import {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import Tooltip from '@mui/material/Tooltip';
+
+import AccessTimeRoundedIcon from '@mui/icons-material/AccessTimeRounded';
+
 import Container from '../UI/Container';
 import Text from '../UI/Text';
 
@@ -35,7 +39,7 @@ const Card = ({task}) => {
                 display='flex'
                 flexDirection='column'
                 margin='30px auto'>
-                <Container display='flex' alignItems='center'> 
+                <Container> 
                     <Text fontSize='18px' color='#4279E0 ' marginLeft='20px'>{task.name}</Text>
                 </Container>
                 {role
@@ -44,6 +48,15 @@ const Card = ({task}) => {
                     </Container>
                     : null
                 }
+                <Container position='absolute' bottom='0' left='10px'>
+                    <Tooltip title='End at'>
+                        <AccessTimeRoundedIcon style={{'fontSize':'20px', 'color':'#5E6569', 'marginRight':'2px'}}/>
+                    </Tooltip>
+                    {task.end_at
+                    ? <Text fontSize='12px' color='#FFC200'>{task.end_at}</Text>
+                    : <Text fontSize='12px' color='#4279E0'>-</Text>
+                    }
+                </Container>
             </Container>
         </Container>
     )

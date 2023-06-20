@@ -10,7 +10,7 @@ import Form from "../UI/Form";
 
 import Tasks from '../../API/TasksAPI';
 
-import SubTaskList from './SubTasks/Update/SubTaskList';
+import SubTaskList from './SubTasks/View/SubTaskList';
 
 
 const Alert = forwardRef(function Alert(props, ref) {
@@ -19,7 +19,7 @@ const Alert = forwardRef(function Alert(props, ref) {
 
 
 
-const TaskUpdate = ({task}) => {
+const TaskView = ({task}) => {
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const [result, setResult] = useState('Ivalid input');
@@ -53,22 +53,25 @@ const TaskUpdate = ({task}) => {
                         type='text'
                         name='name'
                         placeholder={task.name}
+                        readOnly
                     /> 
                    <textarea
                         type='text'
                         name='description'
                         placeholder={task.description}
                         rows="10" cols="65"
+                        readOnly
                     />
                 </Form>
                 <Container display='flex' justifyContent='flex-start'>
                     <SubTaskList subtasks={task.task_items} setOpen={setOpen} setResult={setResult} setSuccess={setSuccess}/>
                 </Container>
                 <Button
-                    color='success'
-                    variant='outlined'
+                    color='warning'
+                    variant='contained'
+                    style={{'marginBottom':'10px', 'width':'20%', 'padding':'5px'}}
                     onClick={handlerRedirect}>
-                    Update task</Button>
+                    Update mode</Button>
                 <Button style={{'background':'#F1F1F4', 'color':'#2E3133'}} onClick={handleBack}>Back</Button>
             </Container>
         </Container>
@@ -89,4 +92,4 @@ const TaskUpdate = ({task}) => {
 }
 
 
-export default TaskUpdate;
+export default TaskView;

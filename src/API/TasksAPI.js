@@ -83,4 +83,112 @@ export default class Tasks {
         console.log(error);
     });
   }
+  static async checkRole(id, navigate, setOpen, setResult, setSuccess){
+    const headers = Object.assign({'Content-Type': 'application/json',},GetAuthHeader())
+    await axios.patch(`${process.env.REACT_APP_SERVER}/tasks/${id}/`,{},
+    {
+        headers: headers,
+    }).then(response => {
+      navigate(`/update-task/${id}`);
+      }).catch(error => {
+        if (error.response && error.response.status < 500) {
+          setResult('You cannot change the task')
+        } else {setResult('Server error')}
+        setOpen(true);
+        setSuccess(false);
+        console.log(error);
+    });
+  }
+  static async getSubTask(id, setter, setcheckValue){
+    const headers = Object.assign({'Content-Type': 'application/json',},GetAuthHeader())
+    await axios.get(`${process.env.REACT_APP_SERVER}/tasks/task-item/${id}/`,{
+      headers: headers,
+    }).then(response => {
+        setter(response.data);
+        setcheckValue(response.data.close)
+    }).catch(error => {
+      console.log(error);
+    });
+  }
+
+
+  static async changeCloseSubTask(id, close, setCheck, setOpen, setResult, setSuccess){
+    const headers = Object.assign({'Content-Type': 'application/json',},GetAuthHeader())
+    await axios.patch(`${process.env.REACT_APP_SERVER}/tasks/task-item/change-close/${id}/`,
+    {
+      close
+    },
+    {
+        headers: headers,
+    }).then(response => {
+        setResult('SubTask has been updated');
+        setOpen(true);
+        setSuccess(true);
+        setCheck(close);
+      }).catch(error => {
+        if (error.response && error.response.status < 500) {
+          setResult('You cannot change this subtask');
+        } else {setResult('Server error')}
+        setOpen(true);
+        setSuccess(false);
+        console.log(error);
+    });
+  }
+  static async getTaskWorkers(id, setter){
+    const headers = Object.assign({'Content-Type': 'application/json',},GetAuthHeader())
+    await axios.get(`${process.env.REACT_APP_SERVER}/tasks/task-item/get-workers/${id}/`,{
+      headers: headers,
+    }).then(response => {
+        setter(response.data);
+    }).catch(error => {
+      console.log(error);
+    });
+  }
+  static async updateSubTask(id, end_at, worker, close, setOpen, setResult, setSuccess){
+    const headers = Object.assign({'Content-Type': 'application/json',},GetAuthHeader());
+    let data = {close}
+    if (worker !== ''){data['worker'] = worker}
+    if (end_at !== ''){data['end_at'] = end_at}
+    await axios.patch(`${process.env.REACT_APP_SERVER}/tasks/task-item/${id}/`,data,
+    {
+        headers: headers,
+    }).then(response => {
+        setResult('SubTask has been updated');
+        setOpen(true);
+        setSuccess(true);
+      }).catch(error => {
+        if (error.response && error.response.status < 500) {
+          const errors = {
+            'end_at':'End at',
+            'worker':'Worker', 
+            'close':'Close', 
+            'Invalid input.':'Invalid input.'
+          }
+          const key = Object.keys(error.response.data)[0];
+          setResult(errors[key]+': '+ error.response.data[key][0]);
+        } else {setResult('Server error')}
+        setOpen(true);
+        setSuccess(false);
+        console.log(error);
+    });
+  }
+  static async removeWorkerSubTask(id, setter, setOpen, setResult, setSuccess){
+    const headers = Object.assign({'Content-Type': 'application/json',},GetAuthHeader());
+    await axios.patch(`${process.env.REACT_APP_SERVER}/tasks/task-item/remove-worker/${id}/`,{},
+    {
+        headers: headers,
+    }).then(response => {
+        setResult('Worker has been removed');
+        setOpen(true);
+        setSuccess(true);
+        setter('');
+      }).catch(error => {
+        if (error.response && error.response.status < 500) {
+          setResult('Worker has not been removed');
+        } else {setResult('Server error')}
+        setOpen(true);
+        setSuccess(false);
+        console.log(error);
+    });
+  }
 }

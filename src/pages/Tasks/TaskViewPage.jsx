@@ -4,27 +4,28 @@ import {useParams} from 'react-router-dom';
 
 import Container from "../../components/UI/Container";
 
-import TaskUpdate from '../../components/TasksUI/TaskUpdate';
+import TaskView from '../../components/TasksUI/TaskView';
 
 import Tasks from '../../API/TasksAPI';
 
 
 
-const TaskUpdatePage = () => {
+const TaskViewPage = () => {
     const {id} = useParams();
     const [task, setTask] = useState(false);
 
     useEffect(()=>{
         Tasks.getTask(id, setTask);
-    },[id])
+    },[id]);
+
     return (
         <Container width='40%' margin='60px auto 0'>
             {task
-                ?<TaskUpdate task={task}/>
+                ?<TaskView task ={task}/>
                 :null
             }
         </Container>
     )
 }
 
-export default TaskUpdatePage;
+export default TaskViewPage;
