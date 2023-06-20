@@ -33,8 +33,8 @@ const ProjectItem = ({project}) => {
             onClick={handler}
             className={styles.container}
             border='3px solid #DEEBFA'
-            borderRadius='10px'
-            padding='20px'
+            borderRadius='5px'
+            padding='15px'
             marginBottom='20px'
             display='flex'
             flexDirection='row'
@@ -44,7 +44,7 @@ const ProjectItem = ({project}) => {
                     ? <AcUnitIcon style={{'fontSize':'32px', 'color':'#5EEBFA'}}/>
                     : <TableChartIcon style={{'fontSize':'32px', 'color':'#5EEBFA'}}/>
                 }
-                <Text fontSize='16px' color='#4279E0 ' marginLeft='10px'>{project.name}</Text>
+                <Text fontSize='16px' color='#5E6569' marginLeft='10px'>{project.name}</Text>
             </Container>
 
             <Divider orientation="vertical" flexItem style={{'marginLeft':'10px', 'marginRight':'10px'}}/>
@@ -55,8 +55,8 @@ const ProjectItem = ({project}) => {
                         <RememberMeIcon style={{'fontSize':'32px', 'color':'#DEEBFA', 'marginRight':'2px'}}/>
                     </Tooltip>  
                     {project.team
-                        ?<Text fontSize='16px' color='#4279E0'>{role}</Text>
-                        :<Text fontSize='16px' color='#4279E0'>-</Text>
+                        ?<Text fontSize='16px' color='#5E6569'>{role}</Text>
+                        :<Text fontSize='16px' color='#5E6569'>-</Text>
                     }
                 </Container>
             </Container>
@@ -69,8 +69,8 @@ const ProjectItem = ({project}) => {
                         <GroupIcon style={{'fontSize':'32px', 'color':'#DEEBFA', 'marginRight':'5px'}}/>
                     </Tooltip>  
                     {project.team
-                        ?<Text fontSize='16px' color='#4279E0'>{project.team.length}</Text>
-                        :<Text fontSize='16px' color='#4279E0'>0</Text>
+                        ?<Text fontSize='16px' color='#5E6569'>{project.team.length}</Text>
+                        :<Text fontSize='16px' color='#5E6569'>0</Text>
                     }
                 </Container>
             </Container>
@@ -78,7 +78,7 @@ const ProjectItem = ({project}) => {
             <Container display='flex' width='25%' justifyContent='flex-end'> 
                 <Container display='flex' alignItems='center'>
                     {project.is_private
-                        ?<Tooltip title='Private project'><LockIcon style={{'fontSize':'20px', 'color':'#DEEBFA'}}/></Tooltip>
+                        ?<Tooltip title='Private project'><LockIcon style={{'fontSize':'20px', 'color':'#5E6569'}}/></Tooltip>
                         :<Tooltip title='Public project'><LockOpenIcon style={{'fontSize':'20px', 'color':'#DEEBFA'}}/></Tooltip>
                     }  
                 </Container>

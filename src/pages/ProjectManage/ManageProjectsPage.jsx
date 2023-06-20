@@ -9,7 +9,7 @@ const ManageProjectsPage = () => {
     return (
         <>
             <Heading title='Manage Projects - Flower'/>
-            <Container width='90%' margin='60px auto 0'>
+            <Container width='70%' margin='60px auto 0'>
                 <ProjectsList/>
             </Container>
         </>

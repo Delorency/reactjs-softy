@@ -10,7 +10,7 @@ import SprintTableRow from './SprintTableRow';
 const Sprint = ({sprint}) => {
     return (
         <>
-        <Container display='flex' width='180vh' justifyContent='space-between' marginBottom='20px' textAlign='center'>
+        <Container display='flex' width='85vw%' justifyContent='space-between' marginBottom='20px' textAlign='center'>
             <Container width='10%'>
                 <Text fontSize='28px'>Backlogs</Text>
             </Container>
