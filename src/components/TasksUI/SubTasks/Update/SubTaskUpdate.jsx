@@ -7,7 +7,6 @@ import FormControl from '@mui/material/FormControl';
 import Tooltip from '@mui/material/Tooltip';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
-import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 
@@ -116,6 +115,15 @@ const SubTaskUpdate = ({id}) => {
                             value={value}
                             onChange={handleChange}
                         >
+                        <Container display='flex'>
+                            <Container>
+                                <FormControlLabel 
+                                value='' control={<Radio/>}/>
+                            </Container>
+                            <Container width='50%'>
+                                <Text>No worker</Text>
+                            </Container>
+                        </Container>
                         {taskWorkers.map(({...worker})=>(
                             <Container display='flex' key={worker.id}>
                                 <Container>

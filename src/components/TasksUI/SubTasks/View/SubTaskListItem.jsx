@@ -27,19 +27,25 @@ const SubTaskListItem = ({subtask, setOpen, setResult, setSuccess}) => {
             padding='5px'
             marginBottom='10px'
             display='flex'
-            justifyContent='flex-start'
+            justifyContent='space-between'
         >
-            <Container>
+            <Container width='10%'>
                 {check
                     ?<Checkbox checked onClick={handler}/>
                     :<Checkbox onClick={handler}/>
                 }   
             </Container>
-            <Container marginRight='20px'>
+            <Container width='30%'>
                 <Text>{subtask.name}</Text>
             </Container>
-            <Container>
+            <Container width='30%'>
                 <Text>{subtask.end_at}</Text>
+            </Container>
+            <Container justifyContent='flex-end'>
+                {subtask.worker
+                    ?<Text>{subtask.worker.user.username}</Text>
+                    :<Text>-</Text>
+                }
             </Container>
         </Container>
         <Divider orientation="horizontal" style={{'marginBottom':'10px'}}/>

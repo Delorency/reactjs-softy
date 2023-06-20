@@ -1,4 +1,4 @@
-import {useState, useEffect, forwardRef} from 'react';
+import {useState, forwardRef} from 'react';
 import {useNavigate} from 'react-router-dom';
 
 import MuiAlert from '@mui/material/Alert';
@@ -62,7 +62,7 @@ const TaskUpdate = ({task}) => {
                     />
                 </Form>
                 <Container display='flex' justifyContent='flex-start'>
-                    <SubTaskList subtasks={task.task_items} setOpen={setOpen} setResult={setResult} setSuccess={setSuccess}/>
+                    <SubTaskList subtasks={task.task_items} task_id={task.id} setOpen={setOpen} setResult={setResult} setSuccess={setSuccess}/>
                 </Container>
                 <Button
                     color='success'

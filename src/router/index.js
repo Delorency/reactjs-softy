@@ -32,6 +32,7 @@ import TaskViewPage from '../pages/Tasks/TaskViewPage';
 import TaskUpdatePage from '../pages/Tasks/TaskUpdatePage';
 
 import SubTaskUpdatePage from '../pages/Tasks/SubTasks/SubTaskUpdatePage';
+import SubTaskCreatePage from '../pages/Tasks/SubTasks/SubTaskCreatePage';
 
 
 
@@ -65,7 +66,8 @@ export const AuthRouter = [
     {id:18, path: '/view-task/:id', component: TaskViewPage, exact: true},
     {id:19, path: '/update-task/:id', component: TaskUpdatePage, exact: true},
 
-    {id:20, path: '/update-subtask/:id', component: SubTaskUpdatePage, exact: true},
+    {id:20, path: '/create-subtask/:id', component: SubTaskCreatePage, exact: true},
+    {id:21, path: '/update-subtask/:id', component: SubTaskUpdatePage, exact: true},
 
 ]
 
