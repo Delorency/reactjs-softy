@@ -63,7 +63,7 @@ const ProjectsList = () => {
                             style={{'marginBottom':'20px', 'color':'#75D674', 'borderColor':'#75D674'}}>
                             Create new project</Button>
                     </Container>
-                    <Container overflow='auto' height='60vh' padding='5px 16px 0 10px'>  
+                    <Container overflow='auto' height='60vh' padding='5px 5px 0 5px'>  
                         {filters.map(({...project})=>(
                             <ProjectItem key={project.id}
                             project={project}/>

@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Container from '../UI/Container';
 import Text from '../UI/Text';
@@ -8,12 +9,18 @@ import {GetRole} from '../../utils/TaskUtils';
 
 const Card = ({task}) => {
     const [role, setRole] = useState(false);
+    const navigate = useNavigate();
+
+    const redirectHandler = () => {
+        navigate(`/view-task/${task.id}`);
+    }
 
     useEffect(()=>{
         GetRole(task, setRole);
     }, [task])
     return (
         <Container
+            onClick={redirectHandler}
             border='2px solid #5E6569'
             borderRadius='5px'
             marginBottom='20px'

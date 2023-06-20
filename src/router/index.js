@@ -28,6 +28,7 @@ import ProfilePage from '../pages/Profile/ProfilePage';
 import SprintPage from '../pages/Sprints/SprintPage';
 
 import TaskCreatePage from '../pages/Tasks/TaskCreatePage';
+import TaskUpdatePage from '../pages/Tasks/TaskUpdatePage';
 
 
 
@@ -58,6 +59,7 @@ export const AuthRouter = [
     {id:16, path: '/sprint/:id', component: SprintPage, exact: true},
     
     {id:17, path: '/create-task/:id', component: TaskCreatePage, exact: true},
+    {id:18, path: '/view-task/:id', component: TaskUpdatePage, exact: true},
 
 ]
 
